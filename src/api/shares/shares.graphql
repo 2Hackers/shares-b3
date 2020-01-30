@@ -1,0 +1,32 @@
+type Shares {
+  id: ID!
+  date: DateOnly!
+  codNeg: String!
+  quantity: Int!
+  value: Int!
+  performance: Int!
+}
+
+input SharesIdInput {
+  id: ID!
+}
+
+type SucessOrFail {
+  ok: Boolean!
+}
+
+input SharesCreateInput {
+  date: DateOnly!
+  codNeg: String!
+  quantity: Int!
+  value: Int!
+}
+
+type Mutation {
+  createShares(input: SharesCreateInput!): Shares
+  removeShares(input: SharesIdInput!) : SucessOrFail
+}
+
+extend type Query {
+  sharess: [Shares]!
+}

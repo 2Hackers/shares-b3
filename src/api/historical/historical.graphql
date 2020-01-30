@@ -1,0 +1,19 @@
+scalar DateOnly
+
+type Historical {
+  id: ID!
+  company: Company!
+  date: DateOnly!
+  openValue: Float!
+  closeValue: Float!
+  minValue: Float!
+  maxValue: Float!
+}
+
+input HistoricalInput {
+  id: String
+}
+
+extend type Query {
+  historicals(input: HistoricalInput): [Historical]!
+}
